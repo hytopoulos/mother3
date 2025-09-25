@@ -92,7 +92,12 @@ enum EquipFlags { _1, Flint, Lucas, Duster, Kumatora, Boney, Salsa, _80 };
 //     u32 battle_info;
 // };
 
-struct Object {
+typedef struct Size {
+    u16 w;
+    s16 h;
+} Size;
+
+typedef struct Object {
     s16 xpos;
     s16 ypos;
     u8 _4_0 : 5;
@@ -166,7 +171,9 @@ struct Object {
     u8 _cc_20 : 1;
     u8 _cc_40 : 1;
     u8 _cc_80 : 1;
-};
+} Object;
+
+extern Object gUnknown_0200C3C8[];
 
 /* size: 8 bytes */
 typedef struct OAMEntry {
@@ -390,11 +397,6 @@ typedef struct Save {
 // extern ItemData gGoodsInfo[];
 extern Save gSave;
 extern struct_02016028 gSomeBlend;
-
-struct Size {
-    u16 w;
-    s16 h;
-};
 
 typedef struct ExpInfo {
     u32 ch_no;

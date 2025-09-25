@@ -1,8 +1,9 @@
 // Auto-generated source file
 #include "global.h"
 #include "structs.h"
+#include "overworld/script.h"
 
-extern "C" Object* get_obj_direct(s32 idx);
+extern "C" Object* get_obj_direct(u16 idx);
 
 extern "C" ASM_FUNC("asm/non_matching/code_08021920/sub_08021920.inc", void sub_08021920());
 extern "C" ASM_FUNC("asm/non_matching/code_08021920/sub_08021930.inc", void sub_08021930());
@@ -537,9 +538,22 @@ extern "C" ASM_FUNC("asm/non_matching/code_08021920/sub_08036A90.inc", void sub_
 extern "C" ASM_FUNC("asm/non_matching/code_08021920/sub_08036B34.inc", void sub_08036B34());
 extern "C" ASM_FUNC("asm/non_matching/code_08021920/sub_08036B6C.inc", void sub_08036B6C());
 extern "C" ASM_FUNC("asm/non_matching/code_08021920/sub_08036BA4.inc", void sub_08036BA4());
-extern "C" ASM_FUNC("asm/non_matching/code_08021920/get_obj_direct.inc", Object* get_obj_direct(s32 id));
-extern "C" ASM_FUNC("asm/non_matching/code_08021920/sub_08036BEC.inc", void sub_08036BEC());
-extern "C" ASM_FUNC("asm/non_matching/code_08021920/sub_08036C00.inc", void sub_08036C00());
+
+extern "C" Object* get_obj_direct(u16 id) {
+    return &gUnknown_0200C3C8[id];
+}
+
+extern "C" void sub_08036BEC(Object* obj, Size* sz) {
+    sz->w = obj->xpos >> 4;
+    sz->h = obj->ypos >> 4;
+}
+
+extern "C" void sub_08036C00(u16 id, Size* sz) {
+    Object* obj = get_obj_direct(id);
+    sz->w = obj->xpos >> 4;
+    sz->h = obj->ypos >> 4;
+}
+
 extern "C" ASM_FUNC("asm/non_matching/code_08021920/sub_08036C24.inc", void sub_08036C24());
 extern "C" ASM_FUNC("asm/non_matching/code_08021920/sub_08036C68.inc", void sub_08036C68());
 extern "C" ASM_FUNC("asm/non_matching/code_08021920/sub_08036C80.inc", void sub_08036C80());
